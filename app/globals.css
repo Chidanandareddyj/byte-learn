@@ -3,6 +3,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+ 
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+ 
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+ 
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+ 
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+ 
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+ 
+  --radius: 0.5rem;
 }
 
 @theme inline {
@@ -16,11 +43,83 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, sans-serif);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* Lensboard-style gradient background - Accurate Version */
+.lensboard-bg {
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse 60% 40% at 30% 45%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 25% 35%, rgba(240, 245, 255, 0.6) 0%, transparent 60%),
+    linear-gradient(135deg, 
+      #a8b5c8 0%, 
+      #b8c5d8 25%, 
+      #c8d5e8 50%, 
+      #b8c5d8 75%, 
+      #a8b5c8 100%
+    );
+  background-size: 100% 100%;
+}
+
+/* Alternative version with slightly different positioning */
+.lensboard-bg-alt {
+  min-height: 100vh;
+  background: 
+    radial-gradient(circle at 25% 40%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 30%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at 20% 50%, rgba(235, 240, 250, 0.4) 0%, transparent 70%),
+    #a1afc2;
+}
+
+/* Simpler version focusing on the key elements */
+.lensboard-bg-simple {
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse at 30% 45%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
+    #a5b3c6;
+}
+
+/* High fidelity version */
+.lensboard-bg-hifi {
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse 70% 50% at 35% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(248, 250, 252, 0.15) 45%, transparent 80%),
+    radial-gradient(ellipse 90% 70% at 30% 45%, rgba(242, 245, 248, 0.2) 0%, transparent 70%),
+    linear-gradient(125deg, #9ca5b3 0%, #a8b1be 25%, #b0b9c6 50%, #a8b1be 75%, #9ca5b3 100%);
 }
