@@ -41,16 +41,12 @@ const Page = () => {
   return (
     <div>
       <h1>My videos</h1>
-
       <Textarea
         placeholder="Enter prompt to generate video"
         className="w-full max-w-2xl mb-4"
         onChange={(e) => setPrompt(e.target.value)}
-      />      <Button
-        className="mb-4"
-        onClick={handleSubmit}
-        disabled={loading}
-      >
+      />{" "}
+      <Button className="mb-4" onClick={handleSubmit} disabled={loading}>
         {loading ? "Generating..." : "Generate Script"}
       </Button>
     </div>
